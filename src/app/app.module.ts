@@ -8,6 +8,7 @@ import { AngularFireAuthModule } from 'angularfire2/auth';
 import { environment } from 'src/environments/environment';
 import { HomeComponent } from './components/home/home.component';
 import { AngularFireDatabaseModule } from 'angularfire2/database';
+import { LoginComponent } from './components/login/login.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
 import { ProductsComponent } from './components/products/products.component';
 import { CheckOutComponent } from './components/check-out/check-out.component';
@@ -18,13 +19,14 @@ import { OrderSuccessComponent } from './components/order-success/order-success.
 @NgModule({
   declarations: [
     AppComponent,
-    NavbarComponent,
     HomeComponent,
+    LoginComponent,
+    NavbarComponent,
+    MyOrdersComponent,
     ProductsComponent,
-    ShoppingCartComponent,
     CheckOutComponent,
-    OrderSuccessComponent,
-    MyOrdersComponent
+    ShoppingCartComponent,
+    OrderSuccessComponent
   ],
   imports: [
     NgbModule,
