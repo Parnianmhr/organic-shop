@@ -10,6 +10,10 @@ import { AppRoutingModule } from './app-routing.module';
 import { HomeComponent } from './components/home/home.component';
 import { ProductsComponent } from './components/products/products.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
+import { ChechOutComponent } from './components/chech-out/chech-out.component';
+import { OrderSuccessComponent } from './components/order-success/order-success.component';
+import { MyOrdersComponent } from './components/my-orders/my-orders.component';
+import { CheckOutComponent } from './components/check-out/check-out.component';
 
 @NgModule({
   declarations: [
@@ -17,7 +21,11 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
     NavbarComponent,
     HomeComponent,
     ProductsComponent,
-    ShoppingCartComponent
+    ShoppingCartComponent,
+    ChechOutComponent,
+    OrderSuccessComponent,
+    MyOrdersComponent,
+    CheckOutComponent
   ],
   imports: [
     BrowserModule,
