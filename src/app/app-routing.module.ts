@@ -8,6 +8,9 @@ import { MyOrdersComponent } from './components/my-orders/my-orders.component';
 import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.component';
 import { OrderSuccessComponent } from './components/order-success/order-success.component';
 import { AuthGaurd } from './services/auth-gaurd.service';
+import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
 
 
 const appRoutes: Routes = [
@@ -19,7 +22,20 @@ const appRoutes: Routes = [
 
   { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGaurd] },
   { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGaurd] },
-  { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGaurd] }
+  { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGaurd] },
+
+  {
+    path: 'admin/products',
+    component: AdminProductsComponent,
+    canActivate: [AuthGaurd, AdminAuthGuard]
+  },
+  {
+    path: 'admin/orders',
+    component: AdminOrdersComponent,
+    canActivate: [AuthGaurd, AdminAuthGuard]
+  },
+
+
 ];
 
 @NgModule({

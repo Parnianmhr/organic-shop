@@ -18,6 +18,10 @@ import { OrderSuccessComponent } from './components/order-success/order-success.
 import { AuthService } from './services/auth.service';
 import { AuthGaurd } from './services/auth-gaurd.service';
 import { UserService } from './services/user.service';
+import { AdminAuthGuard } from './services/admin-auth-guard.service';
+import { AdminProductsComponent } from './components/admin-products/admin-products.component';
+import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
+import { AngularFirestore } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -29,7 +33,9 @@ import { UserService } from './services/user.service';
     ProductsComponent,
     CheckOutComponent,
     ShoppingCartComponent,
-    OrderSuccessComponent
+    OrderSuccessComponent,
+    AdminProductsComponent,
+    AdminOrdersComponent
   ],
   imports: [
     NgbModule,
@@ -42,7 +48,9 @@ import { UserService } from './services/user.service';
   providers: [
     AuthService,
     AuthGaurd,
-    UserService
+    UserService,
+    AdminAuthGuard,
+    AngularFirestore
   ],
   bootstrap: [AppComponent]
 })
