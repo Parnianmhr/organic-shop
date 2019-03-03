@@ -15,7 +15,11 @@ export class AuthGaurd implements CanActivate {
 
   canActivate(route: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
     return this.authService.user$.pipe(map(user => {
-        if (user) { return true; }
+        if (user) {
+          // const returnUrl = localStorage.getItem('returnUrl');
+          // this.router.navigate([returnUrl]);
+          return true;
+        }
         this.router.navigate(['/login'], { queryParams: { returnUrl: state.url }});
         return false;
       })
