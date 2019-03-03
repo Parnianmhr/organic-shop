@@ -17,6 +17,7 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { OrderSuccessComponent } from './components/order-success/order-success.component';
 import { AuthService } from './services/auth.service';
 import { AuthGaurd } from './services/auth-gaurd.service';
+import { UserService } from './services/user.service';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { AuthGaurd } from './services/auth-gaurd.service';
   ],
   providers: [
     AuthService,
-    AuthGaurd
+    AuthGaurd,
+    UserService
   ],
   bootstrap: [AppComponent]
 })
