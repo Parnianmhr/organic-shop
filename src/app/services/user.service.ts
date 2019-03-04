@@ -1,8 +1,6 @@
 import { Injectable } from '@angular/core';
 import { AngularFireDatabase, AngularFireObject } from 'angularfire2/database';
-import * as firebase from 'firebase/app';
-import { Observable } from 'rxjs';
-import { AngularFirestore } from '@angular/fire/firestore';
+import * as firebase from 'firebase';
 import { User } from '../models/user';
 
 @Injectable({
@@ -10,18 +8,16 @@ import { User } from '../models/user';
 })
 export class UserService {
 
-  constructor(private db: AngularFirestore) { }
+  constructor(private db: AngularFireDatabase) { }
 
   save(user: firebase.User) {
-    this.db.doc('/users/' + user.uid).set({
+    this.db.object('/users/' + user.uid).update({
       name: user.displayName,
       email: user.email
-    }, {merge: true })
-    .then(() => console.log())
-    .catch((reason: any) => console.log(reason));
+    });
   }
 
-  get(uid: string): Observable<User> {
-    return this.db.collection('users').doc('/users' + uid).valueChanges() as Observable<User>;
+  get(uid: string) {
+    return this.db.object('/users' + uid).valueChanges();
   }
 }
