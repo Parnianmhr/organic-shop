@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CanActivate, RouterStateSnapshot, ActivatedRouteSnapshot } from '@angular/router';
+import { CanActivate } from '@angular/router';
 import { AuthService } from './auth.service';
-import { UserService } from './user.service';
 import { map, switchMap, take, tap } from 'rxjs/operators';
 import { Observable, of } from 'rxjs';
 import { User } from '../models/user';
@@ -14,10 +13,9 @@ import { AngularFireAuth } from 'angularfire2/auth';
 })
 export class AdminAuthGuard implements CanActivate {
   fbUser: firebase.User;
-user: Observable<User>;
+  user: Observable<User>;
 
-  constructor(private auth: AuthService, 
-    private userService: UserService,
+  constructor(private auth: AuthService,
     private afs: AngularFirestore,
     private afAuth: AngularFireAuth) {
 
@@ -30,17 +28,14 @@ user: Observable<User>;
           }
         })
       );
-
-      console.log(this.user)
     }
-
 
   canActivate(): Observable<boolean> {
     return this.auth.user$.pipe(
       take(1),
       map(user => user && user.isAdmin),
       tap(isAdmin => {
-        if(!isAdmin) { console.log('denied!')}
+        if (!isAdmin) { console.log('denied!'); }
       })
       );
   }

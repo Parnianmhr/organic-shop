@@ -1,15 +1,21 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
+import { CategoryService } from 'src/app/services/category.service';
+import { ProductService } from 'src/app/services/product.service';
 
 @Component({
   selector: 'app-product-form',
   templateUrl: './product-form.component.html',
   styleUrls: ['./product-form.component.scss']
 })
-export class ProductFormComponent implements OnInit {
+export class ProductFormComponent {
+  categories$;
+  constructor(categoryService: CategoryService, private productService: ProductService) {
+    this.categories$ = categoryService.getCategories()
+  }
 
-  constructor() { }
-
-  ngOnInit() {
+  save(product) {
+    console.log(product)
+    this.productService.create(product);
   }
 
 }

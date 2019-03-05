@@ -23,13 +23,12 @@ user: User;
     this.user$ = afAuth.authState.pipe(
       switchMap(user => {
         if (user) {
-          console.log(this.db.object(`users/${user.uid}`).valueChanges())
           return this.db.object(`users/${user.uid}`).valueChanges();
         } else {
           return of(null);
         }
       })
-    )
+    );
     this.user$.subscribe(user => console.log(user));
   }
 
