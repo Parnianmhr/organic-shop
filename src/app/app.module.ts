@@ -22,6 +22,7 @@ import { AdminAuthGuard } from './services/admin-auth-guard.service';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { AdminOrdersComponent } from './components/admin-orders/admin-orders.component';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 
 @NgModule({
   declarations: [
@@ -35,7 +36,8 @@ import { AngularFirestore } from '@angular/fire/firestore';
     ShoppingCartComponent,
     OrderSuccessComponent,
     AdminProductsComponent,
-    AdminOrdersComponent
+    AdminOrdersComponent,
+    ProductFormComponent
   ],
   imports: [
     NgbModule,
