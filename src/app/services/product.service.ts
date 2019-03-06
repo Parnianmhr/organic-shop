@@ -12,4 +12,8 @@ export class ProductService {
     console.log(product)
     return this.db.list('/products').push(product);
   }
+
+  getAll() {
+    return this.db.list('/products').valueChanges();
+  }
 }

@@ -15,7 +15,7 @@ export class ProductFormComponent {
     private categoryService: CategoryService,
     private productService: ProductService
     ) {
-    this.categories$ = categoryService.getCategories()
+    this.categories$ = categoryService.getCategories();
   }
 
   save(product) {
