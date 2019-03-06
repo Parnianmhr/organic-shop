@@ -26,6 +26,7 @@ import { AngularFirestore } from '@angular/fire/firestore';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 import { CategoryService } from './services/category.service';
 import { ProductService } from './services/product.service';
+import { CustomFormsModule } from 'ng2-validation';
 
 @NgModule({
   declarations: [
@@ -47,6 +48,7 @@ import { ProductService } from './services/product.service';
     FormsModule,
     BrowserModule,
     AppRoutingModule,
+    CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFireDatabaseModule

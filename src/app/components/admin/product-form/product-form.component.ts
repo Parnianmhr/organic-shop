@@ -15,7 +15,7 @@ export class ProductFormComponent {
 
   save(product) {
     console.log(product)
-    this.productService.create(product);
+    // this.productService.create(product);
   }
 
 }
