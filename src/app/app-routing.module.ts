@@ -24,15 +24,19 @@ const appRoutes: Routes = [
   { path: 'checkout', component: CheckOutComponent, canActivate: [AuthGaurd] },
   { path: 'my/orders', component: MyOrdersComponent, canActivate: [AuthGaurd] },
   { path: 'order-success', component: OrderSuccessComponent, canActivate: [AuthGaurd] },
-
-  {
-    path: 'admin/products',
-    component: AdminProductsComponent,
-    canActivate: [AuthGaurd, AdminAuthGuard]
-  },
   {
     path: 'admin/products/new',
     component: ProductFormComponent,
+    canActivate: [AuthGaurd, AdminAuthGuard]
+  },
+  {
+    path: 'admin/products/:id',
+    component: ProductFormComponent,
+    canActivate: [AuthGaurd, AdminAuthGuard]
+  },
+  {
+    path: 'admin/products',
+    component: AdminProductsComponent,
     canActivate: [AuthGaurd, AdminAuthGuard]
   },
   {
