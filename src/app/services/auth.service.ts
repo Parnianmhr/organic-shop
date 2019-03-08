@@ -29,7 +29,7 @@ user: User;
         }
       })
     );
-    this.user$.subscribe(user => console.log(user));
+    // this.user$.subscribe(user => console.log(user));
   }
 
   login() {

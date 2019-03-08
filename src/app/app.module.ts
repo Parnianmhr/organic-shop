@@ -27,6 +27,7 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
 import { CategoryService } from './services/category.service';
 import { ProductService } from './services/product.service';
 import { CustomFormsModule } from 'ng2-validation';
+import { AngularFirestoreModule, FirestoreSettingsToken } from '@angular/fire/firestore';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { CustomFormsModule } from 'ng2-validation';
     CustomFormsModule,
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
+    AngularFirestoreModule,
     AngularFireDatabaseModule
   ],
   providers: [
@@ -60,7 +62,8 @@ import { CustomFormsModule } from 'ng2-validation';
     AdminAuthGuard,
     AngularFirestore,
     CategoryService,
-    ProductService
+    ProductService,
+    { provide: FirestoreSettingsToken, useValue: {} }
   ],
   bootstrap: [AppComponent]
 })
