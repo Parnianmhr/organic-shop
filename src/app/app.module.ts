@@ -29,6 +29,8 @@ import { OrderSuccessComponent } from './components/order-success/order-success.
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
 import { SearchProductsPipe } from './pipes/search-products.pipe';
+import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import { MaterialModule } from './material.module';
 
 @NgModule({
   declarations: [
@@ -55,7 +57,9 @@ import { SearchProductsPipe } from './pipes/search-products.pipe';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFireAuthModule,
     AngularFirestoreModule,
-    AngularFireDatabaseModule
+    BrowserAnimationsModule,
+    AngularFireDatabaseModule,
+    MaterialModule
   ],
   providers: [
     AuthGaurd,

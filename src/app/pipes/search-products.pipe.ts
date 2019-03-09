@@ -15,5 +15,5 @@ export class SearchProductsPipe implements PipeTransform {
     }
     return items;
   }
-
 }
+

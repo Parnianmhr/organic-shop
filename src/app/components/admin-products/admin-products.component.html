@@ -9,6 +9,7 @@
         <tr>
             <th>Title</th>
             <th>Price</th>
+            <th>Category</th>
             <th></th>
         </tr>
     </thead>
@@ -16,6 +17,7 @@
         <tr *ngFor="let p of products | searchProducts: query">
             <td>{{ p.title }}</td>
             <td>{{ p.price }}</td>
+            <td>{{ p.category }}</td>
             <td>
                 <a [routerLink]="['./', p.key]">Edit</a>
             </td>
