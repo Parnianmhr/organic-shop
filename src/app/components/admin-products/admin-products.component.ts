@@ -27,8 +27,6 @@ export class AdminProductsComponent implements OnInit, OnDestroy, AfterViewInit 
       this.dataSource = new MatTableDataSource(this.products);
       this.dataSource.paginator = this.paginator;
       this.dataSource.sort = this.sort;
-      console.log(this.products);
-      console.log(this.dataSource)
     });
   }
 
