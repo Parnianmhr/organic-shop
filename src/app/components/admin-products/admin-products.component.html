@@ -26,16 +26,10 @@
 </table> -->
 <div class="example-container mat-elevation-z8">
     <mat-table [dataSource]="dataSource" matSort>
-        <!-- ID Column -->
-        <ng-container matColumnDef="id">
-        <mat-header-cell *matHeaderCellDef mat-sort-header> ID </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.id}} </mat-cell>
-        </ng-container>
-    
         <!-- title Column -->
         <ng-container matColumnDef="title">
         <mat-header-cell *matHeaderCellDef mat-sort-header> Title </mat-header-cell>
-        <mat-cell *matCellDef="let row"> {{row.title}}% </mat-cell>
+        <mat-cell *matCellDef="let row"> {{row.title}} </mat-cell>
         </ng-container>
     
         <!-- price Column -->

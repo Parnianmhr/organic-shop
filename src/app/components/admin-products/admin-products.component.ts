@@ -13,25 +13,28 @@ export class AdminProductsComponent implements OnInit, OnDestroy, AfterViewInit 
   subscription: Subscription;
   query: string;
 
-  displayedColumns = ['id', 'title', 'price', 'category', 'edit'];
+  displayedColumns = ['title', 'price', 'category', 'edit'];
   dataSource: MatTableDataSource<any>;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
   @ViewChild(MatSort) sort: MatSort;
 
-  constructor(private productService: ProductService) {
+  constructor(private productService: ProductService) { }
+
+  ngOnInit() {
     this.subscription = this.productService.getAll().subscribe(p => {
       this.products = p;
+      this.dataSource = new MatTableDataSource(this.products);
+      this.dataSource.paginator = this.paginator;
+      this.dataSource.sort = this.sort;
+      console.log(this.products);
+      console.log(this.dataSource)
     });
   }
 
-  ngOnInit() {
-    this.dataSource = new MatTableDataSource(this.products);
-  }
-
   ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-    this.dataSource.sort = this.sort;
+    // this.dataSource.paginator = this.paginator;
+    // this.dataSource.sort = this.sort;
   }
 
   ngOnDestroy() {
