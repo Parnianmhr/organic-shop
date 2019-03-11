@@ -31,6 +31,7 @@ import { ProductFormComponent } from './components/admin/product-form/product-fo
 import { SearchProductsPipe } from './pipes/search-products.pipe';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
+import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
 
 @NgModule({
   declarations: [
@@ -46,7 +47,8 @@ import { MaterialModule } from './material.module';
     ShoppingCartComponent,
     OrderSuccessComponent,
     AdminProductsComponent,
-    SearchProductsPipe
+    SearchProductsPipe,
+    ProductFilterComponent
   ],
   imports: [
     NgbModule,
