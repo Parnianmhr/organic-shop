@@ -32,6 +32,7 @@ import { SearchProductsPipe } from './pipes/search-products.pipe';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
+import { ProductCardComponent } from './components/product-card/product-card.component';
 
 @NgModule({
   declarations: [
@@ -48,7 +49,8 @@ import { ProductFilterComponent } from './components/products/product-filter/pro
     OrderSuccessComponent,
     AdminProductsComponent,
     SearchProductsPipe,
-    ProductFilterComponent
+    ProductFilterComponent,
+    ProductCardComponent
   ],
   imports: [
     NgbModule,
