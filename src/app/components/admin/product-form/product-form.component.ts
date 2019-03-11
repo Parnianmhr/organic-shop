@@ -12,9 +12,10 @@ import { Observable } from 'rxjs';
   styleUrls: ['./product-form.component.scss']
 })
 export class ProductFormComponent {
-  categories$: Observable<{}>;
   product: any = {};
+  categories: any[];
   id: string;
+  isProduct = false;
 
   constructor(
     private router: Router,
@@ -22,9 +23,10 @@ export class ProductFormComponent {
     private categoryService: CategoryService,
     private productService: ProductService
     ) {
-    this.categories$ = categoryService.getCategories();
+    categoryService.getCategories().subscribe( c => this.categories = c);
     this.id = this.route.snapshot.paramMap.get('id');
     if (this.id) {
+      this.isProduct = true;
       this.productService.get(this.id).pipe(take(1)).subscribe(p => this.product = p);
     }
   }

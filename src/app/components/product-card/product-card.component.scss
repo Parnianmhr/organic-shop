@@ -1,0 +1,13 @@
+a:not([href]):not([tabindex]) {
+    color: white;
+}
+.btn {
+    border-radius: 0;
+}
+.card {
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+}
+img {
+    height: 17rem;
+}
