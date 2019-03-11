@@ -28,7 +28,6 @@ import { ShoppingCartComponent } from './components/shopping-cart/shopping-cart.
 import { OrderSuccessComponent } from './components/order-success/order-success.component';
 import { AdminProductsComponent } from './components/admin-products/admin-products.component';
 import { ProductFormComponent } from './components/admin/product-form/product-form.component';
-import { SearchProductsPipe } from './pipes/search-products.pipe';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
@@ -48,7 +47,6 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     ShoppingCartComponent,
     OrderSuccessComponent,
     AdminProductsComponent,
-    SearchProductsPipe,
     ProductFilterComponent,
     ProductCardComponent
   ],

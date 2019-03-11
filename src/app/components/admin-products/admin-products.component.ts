@@ -1,4 +1,4 @@
-import { Component, OnInit, OnDestroy, ViewChild, AfterViewInit } from '@angular/core';
+import { Component, OnInit, OnDestroy, ViewChild } from '@angular/core';
 import { ProductService } from 'src/app/services/product.service';
 import { Subscription } from 'rxjs';
 import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
@@ -8,10 +8,9 @@ import { MatPaginator, MatSort, MatTableDataSource } from '@angular/material';
   templateUrl: './admin-products.component.html',
   styleUrls: ['./admin-products.component.scss']
 })
-export class AdminProductsComponent implements OnInit, OnDestroy, AfterViewInit {
+export class AdminProductsComponent implements OnInit, OnDestroy {
   products: any[];
   subscription: Subscription;
-  query: string;
 
   displayedColumns = ['title', 'price', 'category', 'edit'];
   dataSource: MatTableDataSource<any>;
@@ -30,9 +29,10 @@ export class AdminProductsComponent implements OnInit, OnDestroy, AfterViewInit 
     });
   }
 
-  ngAfterViewInit() {
-    // this.dataSource.paginator = this.paginator;
-    // this.dataSource.sort = this.sort;
+  applyFilter(filterValue: string) {
+    filterValue = filterValue.trim(); // Remove whitespace
+    filterValue = filterValue.toLowerCase(); // Datasource defaults to lowercase matches
+    this.dataSource.filter = filterValue;
   }
 
   ngOnDestroy() {
