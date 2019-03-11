@@ -32,6 +32,7 @@ import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { MaterialModule } from './material.module';
 import { ProductFilterComponent } from './components/products/product-filter/product-filter.component';
 import { ProductCardComponent } from './components/product-card/product-card.component';
+import { ShoppingCartService } from './services/shopping-cart.service';
 
 @NgModule({
   declarations: [
@@ -71,6 +72,7 @@ import { ProductCardComponent } from './components/product-card/product-card.com
     ProductService,
     CategoryService,
     AngularFirestore,
+    ShoppingCartService,
     { provide: FirestoreSettingsToken, useValue: {} }
   ],
   bootstrap: [AppComponent]
