@@ -47,7 +47,12 @@
         <!-- edit(empty) Column -->
         <ng-container matColumnDef="edit">
             <mat-header-cell *matHeaderCellDef mat-sort-header>  </mat-header-cell>
-            <mat-cell *matCellDef="let row"> Edit </mat-cell>
+            <mat-cell 
+                *matCellDef="let row" 
+                [routerLink]="['./', row.key]" 
+                style="cursor: pointer; color: blue">
+                Edit
+            </mat-cell>
         </ng-container>
 
         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
