@@ -11,3 +11,9 @@ a:not([href]):not([tabindex]) {
 img {
     height: 17rem;
 }
+
+.cart-footer {
+    button {
+        cursor: pointer;
+    }
+}
