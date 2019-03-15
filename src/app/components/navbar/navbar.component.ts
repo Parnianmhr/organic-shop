@@ -2,15 +2,17 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from 'src/app/services/auth.service';
 import { User } from 'src/app/models/user';
 import { ShoppingCartService } from 'src/app/services/shopping-cart.service';
+import { Observable } from 'rxjs';
+import { ShoppingCart } from 'src/app/models/shopping-cart';
 
 @Component({
-  selector: 'navbar',
+  selector: 'app-navbar',
   templateUrl: './navbar.component.html',
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
   user: User;
-shoppingCartItemCount: number;
+  cart$: Observable<ShoppingCart>;
 
   // using async pipe in html to allow angular unsubscrie automatically and we dont need to do that manualy
   constructor(
@@ -20,13 +22,7 @@ shoppingCartItemCount: number;
 
   async ngOnInit() {
     this.auth.user$.subscribe(user => this.user = user);
-    const cart$ = await this.CartService.getCart();
-    cart$.valueChanges().subscribe(cart => {
-      this.shoppingCartItemCount = 0;
-      for (const productId in cart.items) {
-        this.shoppingCartItemCount += cart.items[productId].quantity;
-      }
-    });
+    this.cart$ = await this.CartService.getCart();
   }
 
   logout() {

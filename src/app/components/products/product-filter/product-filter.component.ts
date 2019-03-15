@@ -11,7 +11,7 @@ export class ProductFilterComponent {
   categories$: Observable<{}>;
   @Input() category: string;
 
-  constructor(private categoryService: CategoryService) { 
+  constructor(private categoryService: CategoryService) {
     this.categories$ = this.categoryService.getCategories();
   }
 }
