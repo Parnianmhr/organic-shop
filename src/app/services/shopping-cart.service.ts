@@ -53,11 +53,16 @@ export class ShoppingCartService {
     const item$ = this.getItem(cartId, product.key);
     item$.snapshotChanges().pipe(take(1)).subscribe(item => {
       if (item.payload.val()) {
-        item$.update({
-          title: product.title,
-          imageUrl: product.imageUrl,
-          price: product.price,
-          quantity: (item.payload.val()['quantity']) + change });
+        const quantity = (item.payload.val()['quantity']) + change;
+        if (quantity === 0) {
+          item$.remove();
+        } else {
+          item$.update({
+            title: product.title,
+            imageUrl: product.imageUrl,
+            price: product.price,
+            quantity: quantity });
+        }
       } else {
         item$.set({
           title: product.title,
@@ -66,5 +71,10 @@ export class ShoppingCartService {
           quantity: change });
       }
     });
+  }
+
+  async clearCart() {
+    const cartId = await this.getOrCreateCartId();
+    this.db.object('/shopping-carts/' + cartId + '/items').remove();
   }
 }
