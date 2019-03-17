@@ -10,9 +10,7 @@ export class ProductQuantityComponent {
   @Input('product') product: any;
   @Input('shoppingCart') shoppingCart: any;
 
-  constructor(private cartService: ShoppingCartService) { 
-    console.log(this.product)
-  }
+  constructor(private cartService: ShoppingCartService) {}
 
   addToCart() {
     this.cartService.addToCart(this.product);
