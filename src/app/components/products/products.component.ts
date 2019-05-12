@@ -29,7 +29,6 @@ export class ProductsComponent implements OnInit {
   }
 
   private populateProducts() {
-    
     this.productService.getAll().pipe(
       switchMap(p => {
         this.products = p;
